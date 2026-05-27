@@ -92,7 +92,7 @@
             background-color: #fa5252;
             color: white;
             position: absolute;
-            left: 55%; /* Starting position right of 'Yes' */
+            left: 55%; 
             box-shadow: 0 5px 15px rgba(250, 82, 82, 0.3);
             transition: all 0.1s ease-out;
         }
@@ -111,9 +111,21 @@
             font-size: 1.2rem;
             color: #495057;
         }
+
+        /* Hidden YouTube background audio player */
+        #music-player {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+
+    <!-- YouTube background embed using Louane - Jour 1 -->
+    <iframe id="music-player" src="https://www.youtube.com/embed/6d2e8yfmR04?enablejsapi=1" allow="autoplay"></iframe>
 
     <div class="container" id="proposal-box">
         <div id="question-content">
@@ -128,7 +140,7 @@
         <div id="success-content" class="success-message">
             <div class="heart">💖🎉💍</div>
             <h2>She said YES!</h2>
-            <p>I can't wait to spend the rest of my life with you, Sinda! </p>
+            <p>I can't wait to spend the rest of my life with you, Sinda!</p>
         </div>
     </div>
 
@@ -137,33 +149,32 @@
         const proposalBox = document.getElementById('proposal-box');
         const questionContent = document.getElementById('question-content');
         const successContent = document.getElementById('success-content');
+        const player = document.getElementById('music-player');
 
         function runAway() {
-            // Get viewport dimensions, leaving a margin so it doesn't go off screen
             const padding = 20;
             const maxX = window.innerWidth - noBtn.offsetWidth - padding;
             const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-            // Generate random positions anywhere on the screen
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
 
-            // Switch to fixed positioning so it can escape the container entirely
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         }
 
         function acceptProposal() {
-            // Hide the question and buttons, show the success screen
+            // Hide question, show success screen
             questionContent.style.display = 'none';
             successContent.style.display = 'block';
             
-            // Turn the background into a celebration
+            // Visual flair
             document.body.style.background = "linear-gradient(135deg, #ffe3e3, #ffd3b6)";
-            
-            // Optional: Create a quick burst effect for the container
             proposalBox.style.transform = "scale(1.05)";
+
+            // Command the hidden YouTube player to start playing the song
+            player.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
         }
     </script>
 </body>
