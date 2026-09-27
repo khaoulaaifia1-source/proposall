@@ -1,181 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Question for Sinda</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pour toi ❤️</title>
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-            text-align: center;
-        }
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            z-index: 10;
-            transition: all 0.5s ease;
-        }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,.15);
+      max-width: 500px;
+    }
 
-        h1 {
-            color: #d63384;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
+    h1 {
+      color: #e91e63;
+      font-size: 36px;
+    }
 
-        .heart {
-            font-size: 5rem;
-            color: #e03131;
-            margin-bottom: 20px;
-            animation: heartbeat 1.2s infinite;
-        }
+    p {
+      font-size: 22px;
+      color: #444;
+    }
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            20% { transform: scale(1.1); }
-            40% { transform: scale(1); }
-            60% { transform: scale(1.15); }
-            80% { transform: scale(1); }
-            100% { transform: scale(1); }
-        }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
 
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-top: 30px;
-            min-height: 60px;
-            position: relative;
-        }
+    button {
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-        button {
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+    #yes {
+      background: #e91e63;
+      color: white;
+    }
 
-        #yes-btn {
-            background-color: #2b8a3e;
-            color: white;
-            box-shadow: 0 5px 15px rgba(43, 138, 62, 0.4);
-        }
+    #no {
+      background: #ddd;
+      color: #333;
+      position: fixed;
+    }
 
-        #yes-btn:hover {
-            transform: scale(1.1);
-            background-color: #237032;
-        }
-
-        #no-btn {
-            background-color: #fa5252;
-            color: white;
-            position: absolute;
-            left: 55%; 
-            box-shadow: 0 5px 15px rgba(250, 82, 82, 0.3);
-            transition: all 0.1s ease-out;
-        }
-
-        .success-message {
-            display: none;
-        }
-
-        .success-message h2 {
-            color: #2b8a3e;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .success-message p {
-            font-size: 1.2rem;
-            color: #495057;
-        }
-
-        /* Hidden YouTube background audio player */
-        #music-player {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border: 0;
-            pointer-events: none;
-        }
-    </style>
+    #message {
+      display: none;
+      font-size: 28px;
+      color: #e91e63;
+      margin-top: 25px;
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- YouTube background embed using Louane - Jour 1 -->
-    <iframe id="music-player" src="https://www.youtube.com/embed/6d2e8yfmR04?enablejsapi=1" allow="autoplay"></iframe>
+  <div class="card">
+    <h1>Je t'aime ❤️</h1>
 
-    <div class="container" id="proposal-box">
-        <div id="question-content">
-            <div class="heart">❤️</div>
-            <h1>Sinda Nahali, would you marry me?</h1>
-            <div class="btn-container" id="btn-box">
-                <button id="yes-btn" onclick="acceptProposal()">Yes!</button>
-                <button id="no-btn" onmouseover="runAway()" onclick="runAway()">No</button>
-            </div>
-        </div>
+    <p>
+      Je viens te supporter pendant la garde ? 🥹❤️
+    </p>
 
-        <div id="success-content" class="success-message">
-            <div class="heart">💖🎉💍</div>
-            <h2>She said YES!</h2>
-            <p>I can't wait to spend the rest of my life with you, Sinda!</p>
-        </div>
+    <div class="buttons">
+      <button id="yes">Oui ❤️</button>
+      <button id="no">Non 😏</button>
     </div>
 
-    <script>
-        const noBtn = document.getElementById('no-btn');
-        const proposalBox = document.getElementById('proposal-box');
-        const questionContent = document.getElementById('question-content');
-        const successContent = document.getElementById('success-content');
-        const player = document.getElementById('music-player');
+    <div id="message">
+      Je savais que tu dirais oui ! 😌❤️
+    </div>
+  </div>
 
-        function runAway() {
-            const padding = 20;
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const message = document.getElementById("message");
 
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
+    function escape() {
+      const margin = 20;
 
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
+      const maxX = window.innerWidth - noButton.offsetWidth - margin;
+      const maxY = window.innerHeight - noButton.offsetHeight - margin;
 
-        function acceptProposal() {
-            // Hide question, show success screen
-            questionContent.style.display = 'none';
-            successContent.style.display = 'block';
-            
-            // Visual flair
-            document.body.style.background = "linear-gradient(135deg, #ffe3e3, #ffd3b6)";
-            proposalBox.style.transform = "scale(1.05)";
+      const x = Math.random() * maxX + margin;
+      const y = Math.random() * maxY + margin;
 
-            // Command the hidden YouTube player to start playing the song
-            player.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        }
-    </script>
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    // Le bouton s'enfuit avant même qu'on puisse cliquer dessus
+    noButton.addEventListener("mouseenter", escape);
+    noButton.addEventListener("touchstart", escape);
+
+    yesButton.addEventListener("click", () => {
+      message.style.display = "block";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+    });
+  </script>
+
 </body>
 </html>
